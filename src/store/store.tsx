@@ -31,7 +31,6 @@ const { Provider } = store;
 
 const reducer = (state: IStoreState, action: Actions) => {
   const { id: count, changeValue, isDark } = state;
-
   switch (action.type) {
     case ActionType.IncrementId:
       return {
@@ -66,7 +65,6 @@ const reducer = (state: IStoreState, action: Actions) => {
 const AppProvider = ({ children }: { children: JSX.Element }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   useStoreSideEffect(state, dispatch);
-
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
