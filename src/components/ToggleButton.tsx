@@ -8,7 +8,7 @@ interface IToggleButton {
   disabled?: boolean;
   defaultChecked?: boolean;
   className?: string;
-  onChange: () => {};
+  onChange: () => void;
   icons?: Icons;
 }
 
@@ -55,7 +55,6 @@ export const ToggleButton = (props: IToggleButton) => {
     }
     setToggle(!toggle);
     if (typeof onChange === 'function') {
-      console.log('test');
       onChange();
       // onChange(!toggle);
     }

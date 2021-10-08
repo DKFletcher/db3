@@ -53,7 +53,6 @@ const reducer = (state: IStoreState, action: Actions) => {
         cardDetails: action.payload,
       };
     case ActionType.SetTheme:
-      console.log('test');
       return {
         ...state,
         isDark: !isDark,

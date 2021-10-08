@@ -13,12 +13,12 @@ export const ThemeSwitch = () => {
   return (
     <ToggleButton
       disabled={false}
-      onChange={() => changeThemeEvent}
+      onChange={changeThemeEvent}
       // defaultChecked={true}
       icons={{ checked: <Checked />, unchecked: <Unchecked /> }}
     />
   );
 };
 
-const Checked = () => <>🌜</>;
-const Unchecked = () => <>🌞</>;
+const Checked = () => <>🌞</>;
+const Unchecked = () => <>🌜</>;
