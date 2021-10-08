@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     }
     body,
     html {
+      font-family: Arial, Helvetica, sans-serif;
       background-color: ${(props) => props.theme.body.backgroundColor};
       color: ${(props) => props.theme.body.color};
     }

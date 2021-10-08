@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 export const ToggleButtonWrapper = styled.div`
+  body {
+    /* color: f1f1f1; */
+  }
   .wrg-toggle {
+    font-size: 0.9em;
     touch-action: pan-x;
     display: inline-block;
     position: relative;
@@ -64,7 +68,11 @@ export const ToggleButtonWrapper = styled.div`
     height: 24px;
     padding: 0;
     border-radius: 30px;
-    background-color: #4d4d4d;
+    /* border: solid 1px; */
+    /* background-color: #4d4d4d; */
+    border: 1px solid;
+    box-shadow: inset 0 0 1px, 0 0 1px;
+
     transition: all 0.2s ease;
   }
 
@@ -75,9 +83,10 @@ export const ToggleButtonWrapper = styled.div`
     left: 1px;
     width: 22px;
     height: 22px;
-    border: 1px solid #4d4d4d;
+    border: 1px solid;
+    box-shadow: inset 0 0 1px, 0 0 1px;
     border-radius: 50%;
-    background-color: #fafafa;
+    /* background-color: #fafafa; */
     box-sizing: border-box;
     transition: all 0.25s ease;
   }
