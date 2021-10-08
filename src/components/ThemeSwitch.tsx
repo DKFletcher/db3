@@ -14,6 +14,7 @@ export const ThemeSwitch = () => {
     <ToggleButton
       disabled={false}
       onChange={() => changeThemeEvent}
+      // defaultChecked={true}
       icons={{ checked: <Checked />, unchecked: <Unchecked /> }}
     />
   );

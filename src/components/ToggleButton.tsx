@@ -21,6 +21,8 @@ const defaultIcons: Icons = {
 };
 
 export const ToggleButton = (props: IToggleButton) => {
+  const { defaultChecked, onChange, disabled, className } = props;
+
   const getIcon = (checkedOrUnchecked: string): React.ReactNode => {
     const { icons } = props;
     if (icons === undefined) {
@@ -31,8 +33,6 @@ export const ToggleButton = (props: IToggleButton) => {
   };
 
   const [toggle, setToggle] = useState(false);
-
-  const { defaultChecked, onChange, disabled, className } = props;
 
   useEffect(() => {
     if (defaultChecked) {
