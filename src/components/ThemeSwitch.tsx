@@ -1,23 +1,23 @@
-import React, { useContext } from "react";
-import { ToggleButton } from "../components";
+import React, { useContext, useCallback } from 'react';
+import { store } from '../store/store';
+import { SetTheme } from '../store/actions';
+import { ToggleButton } from '../components';
 
-import { ThemeContext } from "../theme/ThemeContext";
-// const Checked = () => <>on</>;
-// const UnChecked = () => <>off</>;
+export const ThemeSwitch = () => {
+  const {
+    // state: { id, changeValue },
+    dispatch,
+  } = useContext(store);
 
-const ThemeSwitch = () => {
-  const theme = useContext(ThemeContext);
-  const darkMode = theme.state.darkMode;
+  const changeThemeEvent = useCallback(() => dispatch(SetTheme()), [dispatch]);
   return (
-    
     <ToggleButton
       disabled={false}
-      onChange={() => {
-        if (darkMode) theme.dispatch({ type: "LIGHTMODE" });
-        else theme.dispatch({ type: "DARKMODE" });
-      }}
-      // icons={{checked: <Checked />, unchecked: <UnChecked />}}
+      onChange={() => changeThemeEvent}
+      icons={{ checked: <Checked />, unchecked: <Unchecked /> }}
     />
   );
 };
-export default ThemeSwitch;
+
+const Checked = () => <>🌜</>;
+const Unchecked = () => <>🌞</>;

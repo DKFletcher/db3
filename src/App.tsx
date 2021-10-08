@@ -3,6 +3,7 @@ import { lightTheme, darkTheme, GlobalStyles } from './theme';
 import CardInput from './components/CardInput';
 import CardDetails from './components/CardDetails';
 import { store } from './store/store';
+import { ThemeSwitch } from './components';
 
 function App() {
   const {
@@ -12,6 +13,8 @@ function App() {
   return (
     <>
       <GlobalStyles theme={theme} />
+      <ThemeSwitch />
+
       <CardInput />
       <CardDetails />
     </>

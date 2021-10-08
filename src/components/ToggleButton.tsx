@@ -2,39 +2,32 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { ToggleButtonWrapper } from '../elements';
 
-type CheckedUncheckedIcon = React.ReactNode;
-type DefaultIcons = { [index: string]: React.ReactNode };
-
-type icon =
-  | boolean
-  | { checked: CheckedUncheckedIcon; unchecked: CheckedUncheckedIcon }
-  | undefined;
+type Icons = { [index: string]: JSX.Element };
 
 interface IToggleButton {
-  disabled: boolean;
-  defaultChecked: boolean;
-  className: string;
-  onChange: (state: boolean) => {};
-  icons: icon;
+  disabled?: boolean;
+  defaultChecked?: boolean;
+  className?: string;
+  onChange: () => {};
+  icons?: Icons;
 }
 
-export const ToggleButton = (props: IToggleButton) => {
-  const checkedIcon: CheckedUncheckedIcon = () => <>🌜</>;
-  const uncheckedIcon: CheckedUncheckedIcon = () => <>🌞</>;
-  const defaultIcons: DefaultIcons = {
-    checked: checkedIcon,
-    unchecked: uncheckedIcon,
-  };
+const checkedIcon = () => <>on</>;
+const uncheckedIcon = () => <>off</>;
 
-  const getIcon = (
-    type: icon,
-    checkedOrUnchecked: string
-  ): React.ReactNode | null => {
+const defaultIcons: Icons = {
+  checked: checkedIcon(),
+  unchecked: uncheckedIcon(),
+};
+
+export const ToggleButton = (props: IToggleButton) => {
+  const getIcon = (checkedOrUnchecked: string): React.ReactNode => {
     const { icons } = props;
-    if (!icons) {
-      return null;
+    if (icons === undefined) {
+      return defaultIcons[checkedOrUnchecked];
+    } else {
+      return icons[checkedOrUnchecked];
     }
-    return typeof type === undefined ? defaultIcons[checkedOrUnchecked] : icons;
   };
 
   const [toggle, setToggle] = useState(false);
@@ -62,7 +55,9 @@ export const ToggleButton = (props: IToggleButton) => {
     }
     setToggle(!toggle);
     if (typeof onChange === 'function') {
-      onChange(!toggle);
+      console.log('test');
+      onChange();
+      // onChange(!toggle);
     }
   };
 
@@ -75,10 +70,10 @@ export const ToggleButton = (props: IToggleButton) => {
         >
           <div className="wrg-toggle-container">
             <div className="wrg-toggle-check">
-              <span>{getIcon(props.icons, 'checked')}</span>
+              <span>{getIcon('checked')}</span>
             </div>
             <div className="wrg-toggle-uncheck">
-              <span>{getIcon(props.icons, 'unchecked')}</span>
+              <span>{getIcon('unchecked')}</span>
             </div>
           </div>
           <div className="wrg-toggle-circle"></div>
