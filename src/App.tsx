@@ -1,23 +1,37 @@
 import { useContext } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { lightTheme, darkTheme, GlobalStyles } from './theme';
-import CardInput from './components/CardInput';
-import CardDetails from './components/CardDetails';
 import { store } from './store/store';
-import { ThemeSwitch } from './components';
+import { Home, Product, NavBar, Footer, Container } from './components';
 
 function App() {
   const {
     state: { isDark },
   } = useContext(store);
   const theme = isDark ? lightTheme : darkTheme;
+  const dummy = 'dummy';
   return (
-    <>
+    <div id="app">
       <GlobalStyles theme={theme} />
-      <ThemeSwitch />
+      {/* <Container txtProp={'test'}> */}
+      <Container>
+        <div className={'container'}>
+          <div className={'nav'}>
+            <NavBar />
+          </div>
+          <div className={'main'}>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/ProductTest" exact component={Product} />
+            </Switch>
+          </div>
 
-      <CardInput />
-      <CardDetails />
-    </>
+          <div className={'footer'}>
+            <Footer />
+          </div>
+        </div>
+      </Container>
+    </div>
   );
 }
 export default App;
