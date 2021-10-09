@@ -5,4 +5,9 @@ export const darkTheme: DefaultTheme = {
     color: '#f1f1f1',
     backgroundColor: '#000000',
   },
+  breakpoints: {
+    mobile: 'only screen and (max-width: 45rem)',
+    tablet: 'only screen and (max-width: 60rem)',
+    tabletLandscape: 'only screen and (max-width: 62rem)',
+  },
 };

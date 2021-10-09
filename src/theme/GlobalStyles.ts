@@ -5,7 +5,7 @@ export const GlobalStyles = createGlobalStyle`
     ${reset}
     * {
       box-sizing: border-box;
-      margin: 1px0;
+      margin: 1px;
       padding: 10px;
     }
     body,

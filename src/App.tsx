@@ -9,12 +9,11 @@ function App() {
     state: { isDark },
   } = useContext(store);
   const theme = isDark ? lightTheme : darkTheme;
-  const dummy = 'dummy';
   return (
     <div id="app">
       <GlobalStyles theme={theme} />
       {/* <Container txtProp={'test'}> */}
-      <Container>
+      <Container theme={theme}>
         <div className={'container'}>
           <div className={'nav'}>
             <NavBar />
