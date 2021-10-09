@@ -1,15 +1,5 @@
-import 'styled-components';
-
+import {} from 'styled-components';
+import { ThemeType } from './lightTheme';
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    body: {
-      color: string;
-      backgroundColor: string;
-    };
-    breakpoints: {
-      mobile: string;
-      tablet: string;
-      tabletLandscape: string;
-    };
-  }
+  export interface DefaultTheme extends ThemeType {}
 }

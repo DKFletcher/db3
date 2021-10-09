@@ -5,8 +5,10 @@ export const ContainerWrapper = styled.div`
     width: 100vw;
     height: 100vh;
     display: grid;
+    padding: 0;
+
     grid-template-columns: 10rem auto 10rem;
-    grid-template-rows: auto 3rem;
+    grid-template-rows: 9fr 1fr;
   }
   .nav {
     grid-column: 1;
@@ -14,6 +16,8 @@ export const ContainerWrapper = styled.div`
     background-color: blueviolet;
   }
   .main {
+    height: 90%;
+    overflow: auto;
     grid-row: 1 / span 2;
     grid-column: 2;
   }
@@ -22,10 +26,9 @@ export const ContainerWrapper = styled.div`
     grid-column: 1 / span 3;
     background-color: blue;
   }
-
-  @media ${(props) => props.theme.breakpoints} {
+  @media ${(props) => props.theme.breakpoints.mobile} {
     .container {
-      grid-template-columns: 1;
+      grid-template-columns: 1fr;
       grid-template-rows: 3rem auto 3rem;
     }
     .nav {
@@ -33,6 +36,8 @@ export const ContainerWrapper = styled.div`
       background-color: blueviolet;
     }
     .main {
+      height: auto;
+      grid-column: 1;
       grid-row: 2;
     }
     .footer {
@@ -40,4 +45,5 @@ export const ContainerWrapper = styled.div`
       background-color: blue;
     }
   }
+  /* } */
 `;

@@ -1,13 +1,9 @@
-import { DefaultTheme } from 'styled-components';
-interface IBreakpoints {
-  mobile: string;
-  tablet: string;
-  tabletLandscape: string;
-}
-export const lightTheme: DefaultTheme = {
+export type ThemeType = typeof lightTheme;
+export const lightTheme = {
   body: {
     color: '#000000',
     backgroundColor: '#f1f1f1',
+    fontSize: '3rem',
   },
   breakpoints: {
     mobile: 'only screen and (max-width: 45rem)',
